@@ -1,0 +1,13 @@
+<resources>
+    <!--activity main-->
+    <string name="app_name">05Spinner</string>
+    <string name="select_colorXML">Select color (Choices from XML)</string>
+    <string name="select_colorJAVA">Select color (Choices from JAVA)</string>
+    <string name="spn_color_prompt">Please select color</string>
+    <string-array name="spn_color_entries">
+        <item>Red</item>
+        <item>Yellow</item>
+        <item>Blue</item>
+        <item>Green</item>
+    </string-array>
+</resources>

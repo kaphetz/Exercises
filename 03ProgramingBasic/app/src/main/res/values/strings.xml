@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">03ProgramingBasic</string>
+
+    <!--activity_main-->
+    <string name="push_me">Push Me</string>
+    <string name="click_me">Click Me</string>
+    <string name="this_is_a_test">This is a test</string>
+</resources>

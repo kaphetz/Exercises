@@ -1,0 +1,6 @@
+<resources>
+    <!--activity main-->
+    <string name="app_name">04WidgetEventHandling3</string>
+    <string name="hello">Hello</string>
+    <string name="goodbye">Goodbye</string>
+</resources>

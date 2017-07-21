@@ -1,0 +1,71 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    tools:context="com.example.kienpt.a06tablelayout.MainActivity">
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <Button
+            android:id="@+id/btnColor1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorBlueDark"
+            android:padding="2dp"
+            android:text="@string/color1"
+            android:textColor="@color/colorRed" />
+
+        <Button
+            android:id="@+id/btnColor2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@color/color2Background"
+            android:padding="2dp"
+            android:text="@string/color2"
+            android:textColor="@color/colorYellow" />
+
+        <Button
+            android:id="@+id/btnColor3"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:background="@color/color3Background"
+            android:padding="2dp"
+            android:text="@string/color3"
+            android:textColor="@color/colorPrimaryDark" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <TextView
+            android:id="@+id/tvColor"
+            android:layout_span="5"
+            android:height="20pt"
+            android:background="@color/colorYellow" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="0dp"
+            android:layout_column="2"
+            android:layout_weight="3"
+            android:text="@string/clear" />
+    </TableRow>
+
+</TableLayout>
