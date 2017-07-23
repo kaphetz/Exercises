@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context="com.example.kienpt.a08intents2.MainActivity">
 
     <Button
+        android:id="@+id/btn_goToSumActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/go_to_sumactivity"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_goToSumActivity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_to_sumactivity2"
+        android:textAllCaps="false" />
+
+    <EditText
+        android:id="@+id/et_firstNumber"
+        android:inputType="number"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/input_first_number" />
+
+    <EditText
+        android:id="@+id/et_secondNumber"
+        android:inputType="number"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="@string/input_second_number" />
+
+    <Button
+        android:id="@+id/btn_goToSumActivity3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_to_sumactivity3"
+        android:textAllCaps="false" />
 
 </LinearLayout>

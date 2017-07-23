@@ -1,4 +1,9 @@
 <resources>
+    <!--main activity-->
     <string name="app_name">08Intents2</string>
-    <string name="go_to_sumactivity">Go to SumActivity</string>
+    <string name="go_to_sumactivity">Go to SumActivity (Don\'t send data)</string>
+    <string name="go_to_sumactivity2">Go to SumActivity (Data in URI)</string>
+    <string name="go_to_sumactivity3">Go to SumActivity</string>
+    <string name="input_first_number">Input first number</string>
+    <string name="input_second_number">Input second number</string>
 </resources>

@@ -21,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent activityIntent = new Intent(MainActivity.this, SecondActivity.class);
                 Bundle newActivityInfo = new Bundle();
                 Random rand = new Random();
-                int a = rand.nextInt(100);
-                int b = rand.nextInt(100);
-                newActivityInfo.putInt("a", a);
-                newActivityInfo.putInt("b", b);
+                int firstNum = rand.nextInt(100);
+                int secondNum = rand.nextInt(100);
+                newActivityInfo.putInt("firstNum", firstNum);
+                newActivityInfo.putInt("secondNum", secondNum);
                 activityIntent.putExtras(newActivityInfo);
                 startActivity(activityIntent);
             }
