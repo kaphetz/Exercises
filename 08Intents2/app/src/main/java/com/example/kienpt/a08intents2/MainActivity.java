@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        mBaseAddress = "sum://example.com/add";
         switch (v.getId()) {
             case R.id.btn_goToSumActivity:
                 goToSumActivity();
@@ -42,26 +43,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /*
+     *Switch to SumActivity
+     *Don't send data
+     */
     public void goToSumActivity(){
-        mBaseAddress = "sum://example.com/add";
         Uri uri = Uri.parse(mBaseAddress);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
 
+    /*
+     *Switch to SumActivity
+     *Using URI send random number
+     */
     public void goToSumActivity2(){
-        mBaseAddress = "sum://example.com/add";
         Random rand = new Random();
-        int a = rand.nextInt(100);
-        int b = rand.nextInt(100);
-        mBaseAddress = String.format("%s?a=%s&b=%s", mBaseAddress, a, b);
+        int firstNum = rand.nextInt(100);
+        int secondNum = rand.nextInt(100);
+        mBaseAddress = String.format("%s?firstNum=%s&secondNum=%s",
+                mBaseAddress, firstNum, secondNum);
         Uri uri = Uri.parse(mBaseAddress);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
 
+    /*
+     *Switch to SumActivity
+     *Send numbers from the two EditText fields
+     */
     public void goToSumActivity3(){
-        mBaseAddress = "sum://example.com/add";
         EditText etFirstNumber = (EditText) findViewById(R.id.et_firstNumber);
         EditText etSecondNumber = (EditText) findViewById(R.id.et_secondNumber);
         //check null edit text
@@ -73,9 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             etSecondNumber.setError("Please input number");
             return;
         }
-        int a = Integer.valueOf(etFirstNumber.getText().toString());
-        int b = Integer.valueOf(etSecondNumber.getText().toString());
-        mBaseAddress = String.format("%s?a=%s&b=%s", mBaseAddress, a, b);
+        int firstNum = Integer.valueOf(etFirstNumber.getText().toString());
+        int secondNum = Integer.valueOf(etSecondNumber.getText().toString());
+        mBaseAddress = String.format("%s?firstNum=%s&secondNum=%s",
+                mBaseAddress, firstNum, secondNum);
         Uri uri = Uri.parse(mBaseAddress);
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
