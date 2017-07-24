@@ -1,6 +1,6 @@
 <resources>
     <!--main activity-->
-    <string name="app_name">08Intents</string>
+    <string name="app_name">Sum</string>
     <string name="activity_1">Activity 1</string>
     <string name="go_to_activity_1">Go to activity 1</string>
 
@@ -8,4 +8,5 @@
     <string name="go_to_activity_2">Go to activity 2</string>
     <string name="activity_2">Activity 2</string>
     <string name="sum_of_two_numbers">Sum of two numbers</string>
+    <string name="go_to_activity_3">Go to activity 3</string>
 </resources>

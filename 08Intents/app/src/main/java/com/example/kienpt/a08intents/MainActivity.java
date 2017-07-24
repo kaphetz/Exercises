@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btnGoTo2 = (Button) findViewById(R.id.btnGoTo2);
+        Button btnGoTo2 = (Button) findViewById(R.id.btn_goTo2);
+        Button btnGoTo3 = (Button) findViewById(R.id.btn_goTo3);
+
         btnGoTo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,5 +32,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnGoTo3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent activityIntent = new Intent(MainActivity.this, ThirdActivity.class);
+                startActivity(activityIntent);
+            }
+        });
     }
 }

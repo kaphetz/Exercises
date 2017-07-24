@@ -18,7 +18,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Button btnGoTo1 = (Button) findViewById(R.id.btnGoTo1);
+        Button btnGoTo1 = (Button) findViewById(R.id.btn_goTo1);
         TextView tvSum = (TextView) findViewById(R.id.tv_sum);
         getDataFromBundle();
         getDataFromURI();
