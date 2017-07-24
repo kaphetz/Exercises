@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">10RotationsAndAppRestarts</string>
+    <string name="add_message">Add message</string>
+    <string name="input_a_short_string">Enter a short string</string>
+</resources>
