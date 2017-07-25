@@ -2,8 +2,8 @@ package com.example.kienpt.a11networkprograming;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,21 +12,27 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-class MyAsyncTask extends AsyncTask<Void, Integer, Void> {
-    private TextView mTvError;
-    private TextView mTvResult;
+class MyAsyncTask extends AsyncTask<String, Integer, Void> {
     private int mLineSum = 0;
-    Activity contextCha;
+    private String urlString = "";
+    private Activity context;
 
-    public MyAsyncTask(Activity ctx) {
-        contextCha = ctx;
+    MyAsyncTask(Activity ctx) {
+        context = ctx;
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected void onPreExecute() {
+        super.onPreExecute();
+        EditText mEtUrl = (EditText) context.findViewById(R.id.et_url);
+        urlString = mEtUrl.getText().toString();
+    }
+
+    @Override
+    protected Void doInBackground(String... params) {
         HttpURLConnection urlConnection = null;
         try {
-            URL url = new URL("http://www.java2s.com/Code/Android/Network/ReadfromaURL.htm");
+            URL url = new URL(urlString);
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStreamReader inputStream = new InputStreamReader(urlConnection.getInputStream());
             BufferedReader in = new BufferedReader(inputStream);
@@ -34,7 +40,7 @@ class MyAsyncTask extends AsyncTask<Void, Integer, Void> {
                 mLineSum++;
             }
         } catch (MalformedURLException e) {
-            showError("Bad URL: ");
+            showError("Bad URL: " + e);
             e.printStackTrace(); // View this in DDMS window
         } catch (IOException e) {
             showError("Error in connection: " + e);
@@ -43,26 +49,24 @@ class MyAsyncTask extends AsyncTask<Void, Integer, Void> {
             assert urlConnection != null;
             urlConnection.disconnect();
         }
+        publishProgress();
         return null;
     }
 
     @Override
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
-        mTvResult = (TextView) contextCha.findViewById(R.id.tv_result);
-        mTvResult.setText(mLineSum);
+        TextView tvResult = (TextView) context.findViewById(R.id.tv_result);
+        tvResult.setText("The number of lines is " + mLineSum);
     }
 
     @Override
     protected void onPostExecute(Void result) {
-        // TODO Auto-generated method stub
         super.onPostExecute(result);
-        Toast.makeText(contextCha, "Update xong roi do!" + mLineSum,
-                Toast.LENGTH_LONG).show();
     }
 
     private void showError(String text) {
-        mTvError = (TextView) contextCha.findViewById(R.id.tv_error);
-        mTvError.setText(String.format("\n\n%s", text));
+        TextView tvError = (TextView) context.findViewById(R.id.tv_error);
+        tvError.setText(String.format("\n\n%s", text));
     }
 }
