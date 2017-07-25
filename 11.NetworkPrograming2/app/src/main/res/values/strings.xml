@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">11.NetworkPrograming2</string>
+    <string name="print_the_number_of_characters">Print the number of characters</string>
+    <string name="enter_url">Enter URL</string>
+</resources>
