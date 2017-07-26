@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">11.NetworkingPrograming4</string>
+    <string name="loan_amount">Loan amount:</string>
+    <string name="interest_rates">Interest rates</string>
+    <string name="periods_in_months">Periods in months</string>
+    <string name="plan_a">Plan A</string>
+    <string name="plan_b">Plan B</string>
+    <string name="calculate_payments">Calculate Payments</string>
+</resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.example.kienpt.a11networkprograming3.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_loanPeriodInMonths"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loan_period_in_months" />
+
+    <TextView
+        android:id="@+id/tv_loanAmount"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loan_amount" />
+
+    <TextView
+        android:id="@+id/tv_formattedAnnualInterestRateInPercent"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatted_annual_interest_rate_in_percent" />
+
+    <TextView
+        android:id="@+id/tv_totalPayments"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_payments" />
+
+    <TextView
+        android:id="@+id/tv_currencySymbol"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/currency_symbol" />
+
+    <TextView
+        android:id="@+id/tv_annualInterestRateInPercent"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/annual_interest_rate_in_percent" />
+
+    <TextView
+        android:id="@+id/tv_monthlyPayment"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/monthly_payment" />
+
+    <TextView
+        android:id="@+id/tv_formattedLoanAmount"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatted_loan_amount" />
+
+    <TextView
+        android:id="@+id/tv_formattedMonthlyPayment"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatted_monthly_payment" />
+
+    <TextView
+        android:id="@+id/tv_formattedLoanPeriodInMonths"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatted_loan_period_in_months" />
+
+    <TextView
+        android:id="@+id/tv_formattedTotalPayments"
+        style="@style/CustomTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/formatted_total_payments" />
+
+</LinearLayout>

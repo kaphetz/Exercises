@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context="com.example.kienpt.a11networkingprograming4.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_loanAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/et_loanAmount"
+        android:text="@string/loan_amount" />
+
+    <EditText
+        android:id="@+id/et_loanAmount"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:labelFor="@+id/et_interestRates"
+        android:text="@string/plan_a"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_interestRatesA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:labelFor="@+id/et_interestRates"
+        android:text="@string/interest_rates" />
+
+    <EditText
+        android:id="@+id/et_interestRatesA"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_periodsInMonthsA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:labelFor="@+id/et_interestRates"
+        android:text="@string/periods_in_months" />
+
+    <EditText
+        android:id="@+id/et_periodsInMonthsA"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:labelFor="@+id/et_interestRates"
+        android:text="@string/plan_b"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_interestRatesB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:labelFor="@+id/et_interestRates"
+        android:text="@string/interest_rates" />
+
+    <EditText
+        android:id="@+id/et_interestRatesB"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tv_periodsInMonthsB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:labelFor="@+id/et_interestRates"
+        android:text="@string/periods_in_months" />
+
+    <EditText
+        android:id="@+id/et_periodsInMonthsB"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate_payments"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">11.NetworkPrograming3</string>
+    <string name="loan_period_in_months">Loan period in months:</string>
+    <string name="loan_amount">Loan amount:</string>
+    <string name="formatted_annual_interest_rate_in_percent">Formatted annual interest rate in percent:</string>
+    <string name="total_payments">Total payments:</string>
+    <string name="currency_symbol">Currency symbol:</string>
+    <string name="annual_interest_rate_in_percent">Annual interest rate in percent:</string>
+    <string name="monthly_payment">Monthly payment:</string>
+    <string name="formatted_loan_amount">Formatted loan amount:</string>
+    <string name="formatted_monthly_payment">Formatted monthly payment:</string>
+    <string name="formatted_loan_period_in_months">Formatted loan period in months:</string>
+    <string name="formatted_total_payments">Formatted total payments:</string>
+</resources>
