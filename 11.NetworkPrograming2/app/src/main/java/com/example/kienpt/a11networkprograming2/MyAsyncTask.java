@@ -1,18 +1,13 @@
-package com.example.kienpt.a11networkprograming;
+package com.example.kienpt.a11networkprograming2;
 
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 class MyAsyncTask extends AsyncTask<String, Integer, Void> {
-    private int mLineSum = 0;
     private Activity context;
 
     MyAsyncTask(Activity ctx) {
@@ -24,18 +19,20 @@ class MyAsyncTask extends AsyncTask<String, Integer, Void> {
         super.onPreExecute();
     }
 
-    //
+
     @Override
     protected Void doInBackground(String... params) {
-        HttpURLConnection urlConnection = null;
         String urlString = params[0];
+        int counter = 0;
         try {
-            URL url = new URL(urlString);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            InputStreamReader inputStream = new InputStreamReader(urlConnection.getInputStream());
-            BufferedReader in = new BufferedReader(inputStream);
-            while (in.readLine() != null) {
-                mLineSum++;
+            String urlBody = HttpUtils.urlContent(urlString);
+            String[] lines = urlBody.split("[\\n\\r]+");
+            for (String line : lines) {
+                for (int i = 0; i < line.length(); i++) {
+                    if (Character.isLetter(line.charAt(i))) {
+                        counter++;
+                    }
+                }
             }
         } catch (MalformedURLException e) {
             showError("Bad URL: " + e);
@@ -43,11 +40,8 @@ class MyAsyncTask extends AsyncTask<String, Integer, Void> {
         } catch (IOException e) {
             showError("Error in connection: " + e);
             e.printStackTrace(); // View this in DDMS window
-        } finally {
-            assert urlConnection != null;
-            urlConnection.disconnect();
         }
-        publishProgress();
+        publishProgress(counter);
         return null;
     }
 
@@ -56,7 +50,7 @@ class MyAsyncTask extends AsyncTask<String, Integer, Void> {
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
         TextView tvResult = (TextView) context.findViewById(R.id.tv_result);
-        tvResult.setText("The number of lines is " + mLineSum);
+        tvResult.setText(context.getString(R.string.show_message) + " " + values[0].toString());
     }
 
     @Override
@@ -69,3 +63,4 @@ class MyAsyncTask extends AsyncTask<String, Integer, Void> {
         tvError.setText(String.format("\n\n%s", text));
     }
 }
+

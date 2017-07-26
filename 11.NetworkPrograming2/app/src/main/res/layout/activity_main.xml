@@ -21,10 +21,20 @@
         android:text="@string/print_the_number_of_characters"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        android:textAllCaps="false" />
+
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tv_error"
