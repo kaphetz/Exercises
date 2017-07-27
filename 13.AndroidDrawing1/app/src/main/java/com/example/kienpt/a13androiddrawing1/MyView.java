@@ -11,24 +11,33 @@ import android.view.View;
 public class MyView extends View {
     private Paint paint;
 
-    private void initPaint(){
+    private void initPaint() {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(30);
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(1);
+        paint.setStyle(Paint.Style.STROKE);
     }
 
-    public MyView(Context context){
+    public MyView(Context context) {
         super(context);
     }
 
-    public MyView(Context context, AttributeSet attrs){
+    public MyView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initPaint();
     }
 
     @Override
-    protected void onDraw(Canvas canvas){
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas
+        float width = 300;
+        float height = 350;
+        float left = (getWidth() - width) / 2.0f;
+        float top = (getHeight() - height) / 2.0f;
+        canvas.drawRect(left, top, left + width, top + height, paint);
+        canvas.drawLine(left, top, left + width, top + height, paint);
+        canvas.drawLine(left, top + height, left + width, top, paint);
+        canvas.drawLine(left + width / 2.0f, top, left + width / 2.0f, top + height, paint);
+        canvas.drawLine(left, top + height / 2.0f, left + width, top + height / 2.0f, paint);
     }
 }

@@ -4,10 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context="com.example.kienpt.a13androiddrawing1.MainActivity">
 
-    <com.example.kienpt.a13androiddrawing1.MyView
+    <Button
+        android:id="@+id/btn_rect"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/draw_rectangle"/>
+
+    <Button
+        android:id="@+id/btn_icon"
+        android:layout_below="@+id/btn_rect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/draw_icon"/>
 
 </RelativeLayout>

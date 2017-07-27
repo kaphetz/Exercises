@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">13.AndroidDrawing1</string>
+    <string name="draw_rectangle">Draw rectangle</string>
+    <string name="draw_icon">Draw icon</string>
 </resources>
