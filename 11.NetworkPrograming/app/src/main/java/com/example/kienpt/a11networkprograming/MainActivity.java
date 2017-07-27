@@ -37,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }*/
                 //Trigger the process
-                MyAsyncTask myTask;
-                myTask = new MyAsyncTask(MainActivity.this);
-                myTask.execute(mEtURL.getText().toString());
+                new MyAsyncTask(MainActivity.this).execute(mEtURL.getText().toString());
             }
         });
 

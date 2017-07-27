@@ -1,14 +1,13 @@
-package com.example.kienpt.a11networkprograming3;
+package com.example.kienpt.a13androiddrawing1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String baseUrl = "http://apps.coreservlets.com/NetworkingSupport/loan-calculator";
-        new MyAsyncTask(this).execute(baseUrl);
     }
 }

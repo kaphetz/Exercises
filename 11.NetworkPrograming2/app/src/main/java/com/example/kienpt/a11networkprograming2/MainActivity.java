@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     mEtURL.setError("You didn't enter a URL");
                     return;
                 }
-                MyAsyncTask myTask;
-                myTask = new MyAsyncTask(MainActivity.this);
-                myTask.execute(mEtURL.getText().toString());
+                new MyAsyncTask(MainActivity.this).execute(mEtURL.getText().toString());
             }
         });
 
