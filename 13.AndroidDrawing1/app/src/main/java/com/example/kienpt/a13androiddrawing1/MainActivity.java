@@ -18,8 +18,16 @@ public class MainActivity extends AppCompatActivity {
         btnRect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(MainActivity.this, RectView.class);
+                Intent intent1 = new Intent(MainActivity.this, Rectangle.class);
                 startActivity(intent1);
+            }
+        });
+
+        btnIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MainActivity.this, RandomIcon.class);
+                startActivity(intent2);
             }
         });
 
