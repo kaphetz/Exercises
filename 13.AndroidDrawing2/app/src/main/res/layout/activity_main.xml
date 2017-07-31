@@ -6,8 +6,8 @@
     tools:context="com.example.kienpt.a13androiddrawing2.MainActivity">
 
     <com.example.kienpt.a13androiddrawing2.MyView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

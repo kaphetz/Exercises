@@ -1,6 +1,7 @@
 package com.example.kienpt.a13androiddrawing2;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -42,49 +43,62 @@ public class MyView extends View {
         initPaint();
     }
 
-//    private void drawTextBounds(Canvas canvas, Rect rect, int x, int y) {
-//        rectPaint.setColor(Color.BLACK);
-//        rectPaint.setStyle(Paint.Style.STROKE);
-//        rectPaint.setStrokeWidth(2f);
-//        rect.offset(x, y);
-//        canvas.drawRect(rect, rectPaint);
-//    }
+    private void drawTextBounds(Canvas canvas, Rect rect, int x, int y) {
+        rectPaint.setColor(Color.BLACK);
+        rectPaint.setStrokeWidth(2f);
+        rectPaint.setStyle(Paint.Style.STROKE);
+        rect.offset(x, y);
+        canvas.drawRect(rect, rectPaint);
+    }
 
-    // andreas1724 (white color):
-//    private void draw(Canvas canvas, Paint paint, String text, float left, float top) {
-//        paint.setTextAlign(Paint.Align.LEFT);
-//        paint.setColor(Color.BLACK);
-//        canvas.getClipBounds(r);
-//        paint.getTextBounds(text, 0, text.length(), r);
-//        float x = top / 2f - r.width() / 2f - r.left;
-//        float y = left / 2f + r.height() / 2f - r.bottom;
-//        //int angle = RandomUtils.randomInt(180);
-//        paint.setStrokeWidth(2);
-//        paint.setStyle(Paint.Style.STROKE);
-//        canvas.rotate(10);
-//        drawTextBounds(canvas, r, (int) x, (int) y);
-//        canvas.drawText(text, x, y, paint);
-//    }
+    private void draw(Canvas canvas, Paint paint, String text, float left, float top) {
+        paint.setTextAlign(Paint.Align.LEFT);
+        paint.setColor(Color.BLACK);
+        canvas.getClipBounds(r);
+        paint.getTextBounds(text, 0, text.length(), r);
+        float x = top / 2f - r.width() / 2f - r.left;
+        float y = left / 2f + r.height() / 2f - r.bottom;
+//        int angle = RandomUtils.randomInt(180);
+        paint.setStrokeWidth(2);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        canvas.rotate(10);
+        drawTextBounds(canvas, r, (int) x, (int) y);
+        canvas.drawText(text, x, y, paint);
+    }
 
-//    @Override
-//    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-//        super.onSizeChanged(w, h, oldw, oldh);
-//        int margin = 10;
-//        int width = w - 2 * margin;
-//        int height = h - 2 * margin;
-//        params.width = width;
-//        params.height = height;
-//        params.leftMargin = margin;
-//        params.topMargin = margin;
-//        setLayoutParams(params);
-//        float TEXT_HEIGHT_RATIO = 0.1f;
-//        paint.setTextSize(height * TEXT_HEIGHT_RATIO);
-//        paint.setAntiAlias(true);
-//        paint.setTypeface(Typeface.create(Typeface.SERIF, Typeface.BOLD_ITALIC));
-//    }
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        int margin = 10;
+        int width = w - 2 * margin;
+        int height = h - 2 * margin;
+        params.width = width;
+        params.height = height;
+        params.leftMargin = margin;
+        params.topMargin = margin;
+        setLayoutParams(params);
+        float TEXT_HEIGHT_RATIO = 0.1f;
+        paint.setTextSize(height * TEXT_HEIGHT_RATIO);
+        paint.setAntiAlias(true);
+        paint.setTypeface(Typeface.create(Typeface.SERIF, Typeface.BOLD_ITALIC));
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        float l = (getWidth() - 300) / 2.0f;
+        float t = (getHeight() - 300) / 2.0f;
+        Paint rpaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        rpaint.setStrokeWidth(2f);
+        rpaint.setStyle(Paint.Style.STROKE);
+        canvas.drawRect(l, t, l + 300, t + 300, rpaint);
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
+        drawRandomBitmap(canvas, getWidth(), getHeight());
         drawRandomBitmap(canvas, getWidth(), getHeight());
         drawRandomBitmap(canvas, getWidth(), getHeight());
         drawRandomBitmap(canvas, getWidth(), getHeight());
@@ -92,35 +106,10 @@ public class MyView extends View {
     }
 
     private void drawRandomBitmap(Canvas canvas, int viewWidth, int viewHeight) {
-//        float left = RandomUtils.randomFloat(viewWidth);
-//        float top = RandomUtils.randomFloat(viewHeight);
-//        String LABEL = "Wow!";
-//        draw(canvas, paint, LABEL, left, top);
-        paint.setTextSize(50);
-
-        // the display area.
-        Rect areaRect = new Rect(20, 20, 150, 200);
-
-// draw the background style (pure color or image)
-        rectPaint.setColor(Color.BLACK);
-        rectPaint.setStyle(Paint.Style.STROKE);
-        rectPaint.setStrokeWidth(3f);
-        canvas.drawRect(areaRect, rectPaint);
-
-        String pageTitle = "Wow!";
-
-        RectF bounds = new RectF(areaRect);
-// measure text width
-        bounds.right = paint.measureText(pageTitle, 0, pageTitle.length());
-// measure text height
-        bounds.bottom = paint.descent() - paint.ascent();
-
-        bounds.left += (areaRect.width() - bounds.right) / 2.0f;
-        bounds.top += (areaRect.height() - bounds.bottom) / 2.0f;
-        paint.setTypeface(Typeface.create(Typeface.SERIF, Typeface.BOLD_ITALIC));
-        paint.setColor(Color.BLACK);
-        paint.setAntiAlias(true);
-        canvas.drawText(pageTitle, bounds.left, bounds.top - paint.ascent(), paint);
+        float left = RandomUtils.randomFloat(viewWidth);
+        float top = RandomUtils.randomFloat(viewHeight);
+        String LABEL = "Wow!";
+        draw(canvas, paint, LABEL, left, top);
         canvas.rotate(20);
 
     }

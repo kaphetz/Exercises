@@ -12,8 +12,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        FrameLayout container = new FrameLayout(this);
-//        container.addView(new MyView(this));
-//        setContentView(container);
     }
 }

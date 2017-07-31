@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">12.MultiThreadPrograming3</string>
+    <string name="start_flip">Flip 1000 coins</string>
+</resources>
