@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 class MyAsyncTask extends AsyncTask<Objects, Integer, Void> {
     private Activity context;
 
-    private final Count count = new Count();
     private static final int HEAD_TIMEOUT = 10;
 
     MyAsyncTask(Activity ctx) {
@@ -28,19 +27,19 @@ class MyAsyncTask extends AsyncTask<Objects, Integer, Void> {
 
     @Override
     protected Void doInBackground(Objects... params) {
-//        count.max = 0;
-//        ExecutorService taskList = Executors.newFixedThreadPool(50);
-//        for(int i=0; i<5; i++) {
-//            taskList.execute(new Flipper());
-//        }
-//        try {
-//            taskList.shutdown();
-//            taskList.awaitTermination(HEAD_TIMEOUT,
-//                    TimeUnit.SECONDS);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        publishProgress(count.max);
+        ExecutorService taskList = Executors.newFixedThreadPool(50);
+        for(int i=0; i<5; i++) {
+            taskList.execute(new Flipper());
+        }
+        try {
+            taskList.shutdown();
+            taskList.awaitTermination(HEAD_TIMEOUT,
+                    TimeUnit.MINUTES);
+            publishProgress(Flipper.count.max);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Flipper.count.max = 0;
         return null;
     }
 
@@ -51,7 +50,7 @@ class MyAsyncTask extends AsyncTask<Objects, Integer, Void> {
         LinearLayout llMultiThread = (LinearLayout) context.findViewById(R.id.ll_multi_thread);
         TextView displayedResult = new TextView(context);
         displayedResult.setText(String.format("Max consecutive heads: %s",
-                String.valueOf(count.max)));
+                String.valueOf(values[0])));
         llMultiThread.addView(displayedResult);
     }
 

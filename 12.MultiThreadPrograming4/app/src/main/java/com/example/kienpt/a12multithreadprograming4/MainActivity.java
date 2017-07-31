@@ -1,21 +1,11 @@
 package com.example.kienpt.a12multithreadprograming4;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import java.util.Objects;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity implements Runnable {
-
-    private static final int HEAD_TIMEOUT = 10;
-    private final Count count = new Count();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,31 +14,14 @@ public class MainActivity extends AppCompatActivity implements Runnable {
     }
 
     public void startFlipping(View clickedButton) {
-        count.max = 0;
-        ExecutorService taskList = Executors.newFixedThreadPool(50);
-        for (int i = 0; i < 5; i++) {
-            taskList.execute(this);
-        }
-        try {
-            taskList.shutdown();
-            taskList.awaitTermination(HEAD_TIMEOUT,
-                    TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        LinearLayout llMultiThread = (LinearLayout) findViewById(R.id.ll_multi_thread);
-        TextView displayedResult = new TextView(this);
-        displayedResult.setText(String.format("Max consecutive heads: %s",
-                String.valueOf(count.max)));
-        llMultiThread.addView(displayedResult);
+        new MyAsyncTask(MainActivity.this).execute();
     }
 
-    public void run() {
+    /*public void run() {
         int heads = 0;
         for (int i = 0; i < 50; i++) {
             String threadName = Thread.currentThread().getName();
-           // synchronized (count) {
+            synchronized (count) {
                 if (RandomUtils.randomInt(2) == 1) {
                     heads++;
                 } else {
@@ -61,11 +34,12 @@ public class MainActivity extends AppCompatActivity implements Runnable {
                     }
                     heads = 0;
                 }
-           // }
+           }
             ThreadUtils.pause(Math.random());
         }
-    }
+    }*/
 }
+/*
 
 class ThreadUtils {
     static void pause(double seconds) {
@@ -84,12 +58,5 @@ class RandomUtils {
         return (r.nextInt(range));
     }
 }
+*/
 
-class Count {
-    public int max = 0;
-
-    public void change(int heads) {
-        max = heads;
-    }
-
-}
