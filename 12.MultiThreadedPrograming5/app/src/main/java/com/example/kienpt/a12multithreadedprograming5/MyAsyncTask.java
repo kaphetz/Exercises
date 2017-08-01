@@ -1,15 +1,15 @@
-package com.example.kienpt.a12multithreadprograming4;
+package com.example.kienpt.a12multithreadedprograming5;
 
 import android.app.Activity;
 import android.os.AsyncTask;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-class MyAsyncTask extends AsyncTask<Objects, Integer, Void> {
+class MyAsyncTask extends AsyncTask<Integer, String, Void> {
     private Activity context;
 
     private static final int HEAD_TIMEOUT = 10;
@@ -25,30 +25,31 @@ class MyAsyncTask extends AsyncTask<Objects, Integer, Void> {
 
 
     @Override
-    protected Void doInBackground(Objects... params) {
+    protected Void doInBackground(Integer... params) {
         ExecutorService taskList = Executors.newFixedThreadPool(50);
-        for(int i=0; i<5; i++) {
-            taskList.execute(new Flipper());
-        }
+        taskList.execute(new Flipper(params[0]));
         try {
             taskList.shutdown();
             taskList.awaitTermination(HEAD_TIMEOUT,
                     TimeUnit.MINUTES);
-            publishProgress(Flipper.count.mMax);
+            publishProgress(String.valueOf(Flipper.count.mMax), Flipper.mThreadName);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Flipper.count.mMax = 0;
+        Flipper.mThreadName = "";
         return null;
     }
 
     // show result
     @Override
-    protected void onProgressUpdate(Integer... values) {
+    protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
-        TextView tvShowMax = (TextView)context.findViewById(R.id.tv_showMax);
-        tvShowMax.setText(String.format("Max consecutive heads: %s",
-                String.valueOf(values[0])));
+        LinearLayout llMultiThread = (LinearLayout) context.findViewById(R.id.ll_multi_thread);
+        TextView displayedResult = new TextView(context);
+        displayedResult.setText(String.format("Maximum number of consecutive heads of %s is: %s",
+                values[1],values[0]));
+        llMultiThread.addView(displayedResult);
     }
 
     @Override

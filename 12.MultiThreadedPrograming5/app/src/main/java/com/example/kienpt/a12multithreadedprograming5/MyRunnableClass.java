@@ -1,14 +1,21 @@
-package com.example.kienpt.a12multithreadprograming4;
+package com.example.kienpt.a12multithreadedprograming5;
+
 
 import java.util.Random;
 
 class Flipper implements Runnable {
     public static Count count = new Count();
+    public int mNumberOfCoins;
+    public static String mThreadName;
+
+    Flipper(int numberOfCoins) {
+        mNumberOfCoins = numberOfCoins;
+    }
 
     public void run() {
         int heads = 0;
-        for (int i = 0; i < 20; i++) {
-            String threadName = Thread.currentThread().getName();
+        for (int i = 0; i < mNumberOfCoins; i++) {
+            mThreadName = Thread.currentThread().getName();
             if (RandomUtils.randomInt(2) == 1) {
                 heads++;
             } else {
@@ -18,7 +25,7 @@ class Flipper implements Runnable {
                     }
                 }
                 System.out.printf("%s: At the %s times - Get %s consecutive heads%n",
-                        threadName, i, heads);
+                        mThreadName, i, heads);
                 System.out.printf("Max la: %s\n",
                         count.mMax);
                 heads = 0;

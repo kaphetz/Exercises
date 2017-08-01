@@ -7,22 +7,23 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.example.kienpt.a12multithreadprograming4.MainActivity">
+    android:padding="30dp"
+    tools:context="com.example.kienpt.a12multithreadedprograming5.MainActivity">
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startFlipping"
+        android:onClick="startFlippingCoin"
         android:text="@string/start_flip"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/tv_showMax"
-        android:padding="10dp"
-        android:layout_margin="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp" />-->
 </LinearLayout>
